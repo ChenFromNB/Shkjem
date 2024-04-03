@@ -2,29 +2,94 @@
   <div class="home" v-loading="loading">
     <swiper id="swiperBox" v-bind:options="swiperOption" ref="mySwiper">
       <swiper-slide class="swiper-slide slide-one">
-        <div class="page">
-          <h3>科建股份</h3>
-          <p>KeJian Stock</p>
-        </div>
-        <p class="slogan">立人立己 达人达己</p>
+        <!-- <div class="page">
+          <h3>Depu Smart Energy</h3>
+        </div> -->
+        <p class="slogan">Depu Smart Energy Technology</p>
       </swiper-slide>
       <swiper-slide class="swiper-slide slide-two">
         <div class="page">
-          <h3>经典案例</h3>
-          <p>Suecessful Cass</p>
+          <h3>Our Products</h3>
+          <!-- <p>Suecessful Cass</p> -->
         </div>
         <ul class="case-item">
-          <li
-            v-for="(item,index) in caseList"
-            :key="index"
-            v-lazy:background-image="imgserver + item.Img"
-          >
+          <li class="li-product-portable">
             <router-link
               class="text-decoration"
-              :to="{ name: 'casedetails', params: { id: item.Id }}"
+              :to="{ name: 'portableDetail'}"
             >
               <div class="case-item-hover">
-                <p class="hover-title">{{item.Title}}</p>
+                <p class="hover-title">Portable Power Station</p>
+                <div class="bottom"></div>
+                <div class="more">
+                  <span>MORE</span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li class="li-product-carport">
+            <router-link
+              class="text-decoration"
+              :to="{ name: 'carportDetail'}"
+            >
+              <div class="case-item-hover">
+                <p class="hover-title">Foldable solar carport</p>
+                <div class="bottom"></div>
+                <div class="more">
+                  <span>MORE</span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li class="li-product-balcony">
+            <router-link
+              class="text-decoration"
+              :to="{ name: 'balconyDetail'}"
+            >
+              <div class="case-item-hover">
+                <p class="hover-title">Balcony</p>
+                <div class="bottom"></div>
+                <div class="more">
+                  <span>MORE</span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li class="li-product-solar-panel">
+            <router-link
+              class="text-decoration"
+              :to="{ name: 'flexibleSolarPanel'}"
+            >
+              <div class="case-item-hover">
+                <p class="hover-title">Flexible Solar Pabel</p>
+                <div class="bottom"></div>
+                <div class="more">
+                  <span>MORE</span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li class="li-product-industrial">
+            <router-link
+              class="text-decoration"
+              :to="{ name: 'industrialDetail'}"
+            >
+              <div class="case-item-hover">
+                <p class="hover-title">Industrial And Commercial</p>
+                <div class="bottom"></div>
+                <div class="more">
+                  <span>MORE</span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li class="li-product-48v">
+            <router-link
+              class="text-decoration"
+              :to="{ name: 'fourEightSeries'}"
+            >
+              <div class="case-item-hover">
+                <p class="hover-title">48V Series</p>
                 <div class="bottom"></div>
                 <div class="more">
                   <span>MORE</span>
@@ -33,34 +98,6 @@
             </router-link>
           </li>
         </ul>
-      </swiper-slide>
-      <swiper-slide class="swiper-slide slide-three">
-        <div class="page">
-          <h3>最新资讯</h3>
-          <p>Latest News</p>
-        </div>
-        <div class="news-content">
-          <div class="news-content-item" v-for="(news,i) in newsList" :key="i">
-            <div :style="'order: '+ (i%2==0 ? 1: 3)">
-              <router-link
-                class="text-decoration"
-                :to="{ name: 'newsdetails', params: { id: news.Id }}"
-              >
-                <div class="item-img" v-lazy:background-image="imgserver + news.Img"></div>
-              </router-link>
-            </div>
-            <div style="order: 2">
-              <el-divider>
-                <i class="el-icon-apple"></i>
-              </el-divider>
-            </div>
-            <div class="item-content" :style="'order: '+ (i%2==0 ? 3: 1)">
-              <h3>{{news.Title}}</h3>
-              <p>{{news.Content}}</p>
-              <span>{{news.CreateTime}}</span>
-            </div>
-          </div>
-        </div>
       </swiper-slide>
     </swiper>
   </div>
@@ -76,7 +113,7 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      loading: false,
       caseList: [],
       newsList: [],
       swiperOption: {
@@ -123,18 +160,63 @@ export default {
     }
   },
   mounted() {
-    this.$http
-      .all([
-        this.$http.get("Cases/GetCasesAll"),
-        this.$http.get(`News?type=1&num=3`)
-      ])
-      .then(
-        this.$http.spread((responseCases, responseNews) => {
-          this.caseList = responseCases.data;
-          this.newsList = responseNews.data;
-          this.loading = false;
-        })
-      );
+    this.caseList = [{
+      Content: "",
+      CreateTime: "2023-11-30T14:35:52.737",
+      Del: null,
+      Id: 42,
+      Img: "/assets/img/product_portable.png",
+      Title: "Portable Power Station"
+    }, {
+      Content: "",
+      CreateTime: "2023-11-30T14:35:52.737",
+      Del: null,
+      Id: 42,
+      Img: "/imagestore/2023/1130/ac90aca0-aa2f-4ce8-813c-72c8cc9405a5.png",
+      Title: "Foldable solar carport"
+    }, {
+      Content: "",
+      CreateTime: "2023-11-30T14:35:52.737",
+      Del: null,
+      Id: 42,
+      Img: "/imagestore/2023/1130/ac90aca0-aa2f-4ce8-813c-72c8cc9405a5.png",
+      Title: "Balcony"
+    }, {
+      Content: "",
+      CreateTime: "2023-11-30T14:35:52.737",
+      Del: null,
+      Id: 42,
+      Img: "/imagestore/2023/1130/ac90aca0-aa2f-4ce8-813c-72c8cc9405a5.png",
+      Title: "Flexible Solar Pabel"
+    }, {
+      Content: "",
+      CreateTime: "2023-11-30T14:35:52.737",
+      Del: null,
+      Id: 42,
+      Img: "/imagestore/2023/1130/ac90aca0-aa2f-4ce8-813c-72c8cc9405a5.png",
+      Title: "Industrial And Commercial"
+    }, {
+      Content: " ",
+      CreateTime: "2023-11-30T14:35:52.737",
+      Del: null,
+      Id: 42,
+      Img: "/imagestore/2023/1130/ac90aca0-aa2f-4ce8-813c-72c8cc9405a5.png",
+      Title: "48V Series"
+    }] 
+    // this.$http
+    //   .all([
+    //     this.$http.get("Cases/GetCasesAll"),
+    //     this.$http.get(`News?type=1&num=3`)
+    //   ])
+    //   .then(
+    //     this.$http.spread((responseCases, responseNews) => {
+    //       this.caseList = responseCases.data;
+    //       this.newsList = responseNews.data;
+    //       this.loading = false;
+    //     })
+    //   );
+  },
+  methods:{
   }
 };
 </script>
@@ -200,6 +282,31 @@ export default {
       }
     }
   }
+  .li-product-portable {
+    background: url(../assets/img/product_portable.png) no-repeat 
+    center;
+  }
+  .li-product-carport {
+    background: url(../assets/img/product_carport.png) no-repeat center;
+    background-size: cover;
+  }
+  .li-product-balcony {
+    background: url(../assets/img/product_balcony.png) no-repeat center;
+    background-size: cover;
+  }
+  .li-product-solar-panel {
+    background: url(../assets/img/product_solar_panel.png) no-repeat center;
+    background-size: cover;
+  }
+  .li-product-industrial {
+    background: url(../assets/img/product_industrial.png) no-repeat center;
+    background-size: cover;
+  }
+  .li-product-48v {
+    background: url(../assets/img/product_48v.png) no-repeat center;
+    background-size: cover;
+  }
+
 }
 //经典案例hover
 .case-item-hover {

@@ -34,6 +34,41 @@ let kejianrouter = new Router({
       name: 'casedetails',
       component: () => import('./views/CaseDetails.vue')
     },
+
+    {
+      path: '/productPortable',
+      name: 'productPortable',
+      component: () => import('./views/ProductPortable.vue')
+    },
+    {
+      path: '/productCarport',
+      name: 'productCarport',
+      component: () => import('./views/ProductCarport.vue')
+    },
+    {
+      path: '/productBalcony',
+      name: 'productBalcony',
+      component: () => import('./views/ProductBalcony.vue')
+    },
+    {
+      path: '/productSolarPanel',
+      name: 'productSolarPanel',
+      component: () => import('./views/ProductSolarPanel.vue')
+    },
+    {
+      path: '/productIndustrial',
+      name: 'productIndustrial',
+      component: () => import('./views/ProductIndustrial.vue')
+    },
+    {
+      path: '/product48V',
+      name: 'product48V',
+      component: () => import('./views/Product48V.vue')
+    },
+
+
+
+    
     {
       path: '/goin',
       name: 'goin',
