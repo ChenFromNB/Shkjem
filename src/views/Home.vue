@@ -16,7 +16,7 @@
           <li class="li-product-portable">
             <router-link
               class="text-decoration"
-              :to="{ name: 'portableDetail'}"
+              :to="{ name: 'productPortable'}"
             >
               <div class="case-item-hover">
                 <p class="hover-title">Portable Power Station</p>
@@ -30,7 +30,7 @@
           <li class="li-product-carport">
             <router-link
               class="text-decoration"
-              :to="{ name: 'carportDetail'}"
+              :to="{ name: 'productCarport'}"
             >
               <div class="case-item-hover">
                 <p class="hover-title">Foldable solar carport</p>
@@ -44,7 +44,7 @@
           <li class="li-product-balcony">
             <router-link
               class="text-decoration"
-              :to="{ name: 'balconyDetail'}"
+              :to="{ name: 'productBalcony'}"
             >
               <div class="case-item-hover">
                 <p class="hover-title">Balcony</p>
@@ -58,7 +58,7 @@
           <li class="li-product-solar-panel">
             <router-link
               class="text-decoration"
-              :to="{ name: 'flexibleSolarPanel'}"
+              :to="{ name: 'productSolarPanel'}"
             >
               <div class="case-item-hover">
                 <p class="hover-title">Flexible Solar Pabel</p>
@@ -72,7 +72,7 @@
           <li class="li-product-industrial">
             <router-link
               class="text-decoration"
-              :to="{ name: 'industrialDetail'}"
+              :to="{ name: 'productIndustrial'}"
             >
               <div class="case-item-hover">
                 <p class="hover-title">Industrial And Commercial</p>
@@ -86,7 +86,6 @@
           <li class="li-product-48v">
             <router-link
               class="text-decoration"
-              :to="{ name: 'fourEightSeries'}"
             >
               <div class="case-item-hover">
                 <p class="hover-title">48V Series</p>
@@ -285,6 +284,7 @@ export default {
   .li-product-portable {
     background: url(../assets/img/product_portable.png) no-repeat 
     center;
+    background-size: cover;
   }
   .li-product-carport {
     background: url(../assets/img/product_carport.png) no-repeat center;

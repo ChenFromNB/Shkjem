@@ -1,49 +1,33 @@
 <template>
   <div class="case">
-    <banner img="../assets/img/bgtop.jpg" />
-    <div class="case-product">
-      <div class="case-product-content">
-        <img v-lazy="imgserver+caseIdList.Img" alt />
-        <p class="product-title">{{caseIdList.Title}}</p>
-        <p class="product-time">{{caseIdList.CreateTime}}</p>
-        <p class="product-content">{{caseIdList.Content}}</p>
-      </div>
-    </div>
+    <el-image
+      style="width: 70%;"
+      :src="img1"
+      mode="scaleToFill"
+    />
+    <el-image
+      style="width: 70%;"
+      :src="img2"
+      mode="scaleToFill"
+    />
   </div>
 </template>
 
 <script>
-import Banner from "../components/Banner";
 export default {
   components: {
-    Banner
   },
   data() {
     return {
-      pid: 0,
-      caseIdList: {}
+      img1:require('../assets/img/carport_1.png'),
+      img2:require('../assets/img/carport_2.png')
     };
   },
   created() {
-    this.pid = this.$route.params.id;
-    window.console.log(this.pid);
   },
   mounted() {
-    this.loadData();
   },
   methods: {
-    loadData() {
-      this.$http
-        .get(`Cases/GetCasesById/${this.pid}`)
-        .then(response => {
-          //console.log(response);
-          this.caseIdList = response.data;
-          window.console.log(this.caseIdList);
-        })
-        .catch(function(error) {
-          window.console.log(error);
-        });
-    }
   }
 };
 </script>
@@ -53,7 +37,10 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #14679f;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &-product {
     width: 1240px;
     margin: 0 auto;

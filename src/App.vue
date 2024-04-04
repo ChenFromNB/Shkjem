@@ -3,7 +3,8 @@
     <el-container>
       <el-header>
         <div class="logo">
-          <img src="./assets/img/toplogo.png" alt />
+          <img src="./assets/img/logo.svg" alt/>
+          <div>Depu Smart Energy Technology</div>
         </div>
         <el-menu
           :default-active="defaultActive"
@@ -13,7 +14,14 @@
           :router="router"
         >
           <el-menu-item index="/">Depu</el-menu-item>
-          <el-menu-item index="/product">Products</el-menu-item>
+          <el-submenu index="/productPortable">
+            <template slot="title">Products</template>
+            <el-menu-item index="/productPortable">Portable Power Station</el-menu-item>
+            <el-menu-item index="/productCarport">Foldable Solar Carport</el-menu-item>
+            <el-menu-item index="/productBalcony">Balcony</el-menu-item>
+            <el-menu-item index="/productSolarPanel">Flexible Solar Panel</el-menu-item>
+            <el-menu-item index="/productIndustrial">Industrial</el-menu-item>
+          </el-submenu>
           <el-menu-item index="/goin">About</el-menu-item>
         </el-menu>
       </el-header>
@@ -103,11 +111,14 @@ body {
   //background-color: #fff;
 
   .logo {
-    width: 280px;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     img {
-      width: 100%;
-      line-height: 60px;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
     }
   }
 }
