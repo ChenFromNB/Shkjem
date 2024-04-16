@@ -21,6 +21,8 @@
             <el-menu-item index="/productBalcony">Balcony</el-menu-item>
             <el-menu-item index="/productSolarPanel">Flexible Solar Panel</el-menu-item>
             <el-menu-item index="/productIndustrial">Industrial</el-menu-item>
+            <el-menu-item index="/productAllInOne">Portable All-in-one ESS</el-menu-item>
+            <el-menu-item index="/productInvertor">Invertor</el-menu-item>
           </el-submenu>
           <el-menu-item index="/goin">About</el-menu-item>
         </el-menu>

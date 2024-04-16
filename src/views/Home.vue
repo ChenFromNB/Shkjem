@@ -10,7 +10,6 @@
       <swiper-slide class="swiper-slide slide-two">
         <div class="page">
           <h3>Our Products</h3>
-          <!-- <p>Suecessful Cass</p> -->
         </div>
         <ul class="case-item">
           <li class="li-product-portable">
@@ -83,12 +82,27 @@
               </div>
             </router-link>
           </li>
-          <li class="li-product-48v">
+          <li class="li-product-portable-all-in-one">
             <router-link
               class="text-decoration"
+              :to="{ name: 'productAllInOne'}"
             >
               <div class="case-item-hover">
-                <p class="hover-title">48V Series</p>
+                <p class="hover-title">Portable All In One ESS</p>
+                <div class="bottom"></div>
+                <div class="more">
+                  <span>MORE</span>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li class="li-product-invertor">
+            <router-link
+              class="text-decoration"
+              :to="{ name: 'productInvertor'}"
+            >
+              <div class="case-item-hover">
+                <p class="hover-title">Invertor</p>
                 <div class="bottom"></div>
                 <div class="more">
                   <span>MORE</span>
@@ -254,11 +268,9 @@ export default {
 }
 //经典案例
 .case-item {
-  width: 1100px;
-  height: 500px;
-  overflow: hidden;
+  width: 1400px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -272,7 +284,6 @@ export default {
     background-origin: content-box;
     margin: 5px;
     position: relative;
-    overflow: hidden;
 
     &:hover {
       .case-item-hover {
@@ -302,8 +313,12 @@ export default {
     background: url(../assets/img/product_industrial.png) no-repeat center;
     background-size: cover;
   }
-  .li-product-48v {
-    background: url(../assets/img/product_48v.png) no-repeat center;
+  .li-product-portable-all-in-one {
+    background: url(../assets/img/product-all-in-one.png) no-repeat center;
+    background-size: cover;
+  }
+  .li-product-invertor {
+    background: url(../assets/img/product_invertor.png) no-repeat center;
     background-size: cover;
   }
 

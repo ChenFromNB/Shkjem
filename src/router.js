@@ -61,14 +61,15 @@ let kejianrouter = new Router({
       component: () => import('./views/ProductIndustrial.vue')
     },
     {
-      path: '/product48V',
-      name: 'product48V',
-      component: () => import('./views/Product48V.vue')
+      path: '/productAllInOne',
+      name: 'productAllInOne',
+      component: () => import('./views/ProductAllInOne.vue')
     },
-
-
-
-    
+    {
+      path: '/productInvertor',
+      name: 'productInvertor',
+      component: () => import('./views/ProductInvertor.vue')
+    },    
     {
       path: '/goin',
       name: 'goin',
